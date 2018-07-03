@@ -49,7 +49,7 @@ export default class MainNavigation extends React.Component {
         <NavigationBranding to="/">Brew Tech</NavigationBranding>
 
         <NavigationLinks>
-          <NavigationLinksItem to="/" activeClassName="active" first>
+          <NavigationLinksItem to="/" activeClassName="active" exact first>
             Our Work
             <NavigationLinksItemStrikethrough />
           </NavigationLinksItem>
