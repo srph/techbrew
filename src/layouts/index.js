@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import Container from '../components/Container'
+import MainFooter from '../components/MainFooter'
+import MainNavigation from '../components/MainNavigation'
 
 import './index.css'
 import './normalize.css'
@@ -14,7 +17,12 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    {children()}
+
+    <Container>
+      <MainNavigation />
+      {children()}
+      <MainFooter />
+    </Container>
   </div>
 )
 
