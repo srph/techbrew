@@ -1,26 +1,27 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# techbrew
+[WIP] Website for Tech Brew Labs
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+## Stack
+Built with [Gatsby](https://www.gatsbyjs.org/) v1, a static-site generator for React.js
 
-## Install
+## Contributing
+### Requirements
+[Node `>=8` && npm `>=5`](https://nodejs.org/api/util.html#util_util)
 
-Make sure that you have the Gatsby CLI program installed:
-```sh
-npm install --global gatsby-cli
+### Setup
+- Install dependencies:
+```bash
+npm install
 ```
-
-And run from your CLI:
-```sh
-gatsby new gatsby-example-site
+- Run Gatsby to watch for file changes
+```bash
+npm run develop
 ```
+- Open up your browser and go to `localhost:8000`.
 
-Then you can run it by:
-```sh
-cd gatsby-example-site
-gatsby develop
+### Deployment
+Run the following:
 ```
-
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+gatsby build
+```
+Then set the public / root path to `/public`.
