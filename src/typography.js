@@ -3,7 +3,6 @@ import vars from './variables'
 import FontAwesomeIcon from './components/FA';
 
 const fam = vars['font-family'].replace(/'/g, '').split(', ')
-// const fam = vars['font-family'].split(', ')
 
 export default new Typography({
   baseLineHeight: 1.7,
@@ -12,5 +11,11 @@ export default new Typography({
   bodyFontFamily: fam,
   color: vars['color-black'],
   boxSizing: 'border-box',
-  includeNormalize: true
+  includeNormalize: true,
+  overrideStyles: () => ({
+    img: {
+      // No idea why Typography.js puts marginBottom by default.
+      marginBottom: 0
+    }
+  })
 })
