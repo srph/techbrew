@@ -4,11 +4,9 @@ import styled from 'styled-components'
 import vars from '../../variables'
 
 const Navigation = styled.div`
-  padding-top: 16px;
-  padding-bottom: 16px;
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 120px;
 `
 const NavigationBranding = styled.a`
   text-decoration: none;
@@ -18,23 +16,29 @@ const NavigationLinks = styled.div`
   display: flex;
   align-items: center;
   margin-left: auto;
+  height: 100%;
 `
 const NavigationLinksItemStrikethrough = styled.div`
   position: absolute;
-  top: 7px;
+  top: 50%;
   left: -4px;
   height: 2px;
   width: 0;
   background: ${vars['color-primary']};
   transition: 0.2s all ease;
+  transform: translateY(-50%);
 `
 const NavigationLinksItem = styled(Link)`
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: ${vars['color-black']};
   text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;
-  margin-left: 16px;
+  height: 100%;
+  margin-left: 40px;
 
   &.active > ${NavigationLinksItemStrikethrough},
   &:hover > ${NavigationLinksItemStrikethrough} {

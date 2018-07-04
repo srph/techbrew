@@ -85,7 +85,7 @@ const ui = {
 const IndexPage = () => (
   <DefaultLayout>
     <Jumbotron
-      title="We create your ideas to life."
+      title="What we do"
       description={`
         Lorem ipsum keme keme keme 48 years chipipay Gino krang-krang doonek na
         bakit kasi jutay cheapangga na ang borta shala ng neuro at ang juts at
