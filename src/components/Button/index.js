@@ -7,16 +7,18 @@ import Link from 'gatsby-link'
 type Props = {
   preset: 'gray' | 'primary',
   component: 'a' | 'button',
+  size: 'large' | 'medium',
   spacious: boolean,
 }
 
-const Button = ({ component, spacious, preset, ...props }: Props) => {
+const Button = ({ component, spacious, preset, size, ...props }: Props) => {
   const Component = component === 'a' ? Link : component
   return <Component {...props} />
 }
 
 Button.defaultProps = {
   preset: 'primary',
+  size: 'medium',
   component: 'button',
 }
 
@@ -42,11 +44,11 @@ Button.IconText = ({ children }) => <span>{children}</span>
 export default styled(Button)`
   display: inline-block;
   padding: 0;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
   border-radius: 4px;
-  height: 48px;
-  line-height: 47px;
+  height: ${vars['form-size']}px;
+  line-height: ${vars['form-size'] - 1}px;
   border: 1px solid ${vars['color-primary']};
   text-transform: uppercase;
   background: transparent;
@@ -74,4 +76,9 @@ export default styled(Button)`
       color: ${vars['color-dark-gray']};
       border-color: ${vars['color-dark-gray']};
     `};
+
+  ${props => props.size === 'large' && css`
+    height: ${vars['form-size-large']}px
+    line-height: ${vars['form-size-large'] - 1}px
+  `}
 `

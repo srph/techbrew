@@ -41,7 +41,7 @@ const IndexPage = () => (
   <Container>
     <ui.Wrapper>
       <ui.CloseButton>
-        <Button component="a" to="/">
+        <Button component="a" to="/" size='large'>
           <Button.IconContainer>
             <Button.Icon><FA icon='times' /></Button.Icon>
             <Button.IconText>Close</Button.IconText>
@@ -70,7 +70,7 @@ const IndexPage = () => (
       </ui.FormFields>
 
       <ui.FormAction>
-        <Button spacious preset='gray'>
+        <Button spacious preset='gray' size='large'>
           <Button.IconContainer>
             <Button.IconText>Send Message</Button.IconText>
             <Button.Icon><FA icon='long-arrow-alt-right' size="2x" /></Button.Icon>
