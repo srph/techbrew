@@ -14,6 +14,7 @@ ui.TileShowcase = styled.div`
   margin-bottom: 16px;
 
   &:nth-child(odd) {
+    text-align: right;
     flex-direction: row-reverse;
   }
 `
@@ -126,7 +127,7 @@ const IndexPage = () => (
               </ui.TileShowcaseBoxDescription>
 
               {project.tags && (
-                <Label.Group>
+                <Label.Group reverse={i % 2 === 0}>
                   {project.tags.map((tag, i) => <Label key={i}>{tag}</Label>)}
                 </Label.Group>
               )}

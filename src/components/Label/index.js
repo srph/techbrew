@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 const Label = styled.span`
   display: inline-block;
@@ -15,8 +15,8 @@ const Label = styled.span`
 `
 
 Label.Group = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  ${'' /* display: flex;
+  flex-wrap: wrap; */}
 
   span:not(:last-child) {
     margin-right: 8px;
@@ -25,6 +25,15 @@ Label.Group = styled.div`
   ${Label} {
     margin-bottom: 8px;
   }
+
+  ${props => props.reverse && css`
+    flex-direction: row-reverse;
+
+    ${Label}:not(:last-child) {
+      margin-left: 8px;
+      margin-right: 0;
+    }
+  `}
 `
 
 export default Label
