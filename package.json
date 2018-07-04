@@ -12,6 +12,7 @@
     "gatsby-plugin-react-helmet": "^2.0.10",
     "i": "^0.3.6",
     "npm": "^6.1.0",
+    "polished": "^1.9.3",
     "react-helmet": "^5.2.0",
     "styled-components": "^3.3.3"
   },

@@ -32,13 +32,14 @@ const FooterGoToTop = styled.div`
   color: ${vars['color-primary']};
   background: #fff;
   border-radius: 50%;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s cubic-bezier(0.06, 0.67, 0.37, 0.99);
+  border: 1px solid transparent;
+  box-shadow: ${vars['drop-shadow']};
+  transition: ${vars['drop-shadow-transition']};
   cursor: pointer;
   font-size: 36px;
 
   &:hover {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: ${vars['drop-shadow-lower']};
   }
 `
 
