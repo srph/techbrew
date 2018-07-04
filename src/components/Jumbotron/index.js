@@ -14,11 +14,11 @@ const Title = styled.h1`
   margin-bottom: 16px;
   text-transform: uppercase;
   width: 400px;
+  color: ${vars['color-primary']};
 `
 
 const Description = styled.p`
   line-height: 1.7;
-  color: ${vars['color-gray']};
   width: 75%;
 `
 

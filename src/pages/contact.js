@@ -5,6 +5,7 @@ import Container from '../components/Container'
 import Button from '../components/Button'
 import Input from '../components/Input'
 import Textarea from '../components/Textarea'
+import FA from '../components/FA'
 
 const ui = {
   Wrapper: styled.div`
@@ -40,7 +41,12 @@ const IndexPage = () => (
   <Container>
     <ui.Wrapper>
       <ui.CloseButton>
-        <Button>Close</Button>
+        <Button component="a" to="/">
+          <Button.IconContainer>
+            <Button.Icon><FA icon='times' /></Button.Icon>
+            <Button.IconText>Close</Button.IconText>
+          </Button.IconContainer>
+        </Button>
       </ui.CloseButton>
 
       <Jumbotron
@@ -60,11 +66,16 @@ const IndexPage = () => (
           </ui.FormFieldsInfoSection>
         </ui.FormFieldsInfo>
 
-        <Textarea placeholder="Your message..." />
+        <Textarea rows="8" placeholder="Your message..." />
       </ui.FormFields>
 
       <ui.FormAction>
-        <Button>Send Message</Button>
+        <Button spacious preset='gray'>
+          <Button.IconContainer>
+            <Button.IconText>Send Message</Button.IconText>
+            <Button.Icon><FA icon='long-arrow-alt-right' size="2x" /></Button.Icon>
+          </Button.IconContainer>
+        </Button>
       </ui.FormAction>
     </ui.Wrapper>
   </Container>

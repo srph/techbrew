@@ -5,8 +5,8 @@ import FA from '../FA'
 import vars from '../../variables'
 
 const Footer = styled.div`
-  padding-top: 80px;
-  padding-bottom: 40px;
+  padding-top: 200px;
+  padding-bottom: 120px;
   text-align: center;
 `
 
