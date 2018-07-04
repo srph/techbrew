@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import vars from '../../variables'
 
 const Navigation = styled.div`
   padding-top: 16px;
@@ -24,12 +25,12 @@ const NavigationLinksItemStrikethrough = styled.div`
   left: -4px;
   height: 2px;
   width: 0;
-  background: #8d99c6;
+  background: ${vars['color-primary']};
   transition: 0.2s all ease;
 `
 const NavigationLinksItem = styled(Link)`
   position: relative;
-  color: var(--color-black);
+  color: ${vars['color-black']};
   text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;

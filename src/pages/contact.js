@@ -5,7 +5,6 @@ import Container from '../components/Container'
 import Button from '../components/Button'
 import Input from '../components/Input'
 import Textarea from '../components/Textarea'
-import cog from '../icons/cog.svg'
 
 const ui = {
   Wrapper: styled.div`

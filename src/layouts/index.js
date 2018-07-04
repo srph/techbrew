@@ -1,15 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Container from '../components/Container'
-import MainFooter from '../components/MainFooter'
-import MainNavigation from '../components/MainNavigation'
+import MainBackground from '../components/MainBackground'
 
-import './index.css'
+import './fa'
 import './normalize.css'
 
 const Layout = ({ children, data }) => (
-  <div>
+  <MainBackground>
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
@@ -18,12 +16,8 @@ const Layout = ({ children, data }) => (
       ]}
     />
 
-    <Container>
-      <MainNavigation />
-      {children()}
-      <MainFooter />
-    </Container>
-  </div>
+    {children()}
+  </MainBackground>
 )
 
 Layout.propTypes = {

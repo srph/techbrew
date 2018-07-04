@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import DefaultLayout from '../layouts/Default'
 import Jumbotron from '../components/Jumbotron'
 import cog from '../icons/cog.svg'
 
@@ -82,7 +83,7 @@ const ui = {
 }
 
 const IndexPage = () => (
-  <div>
+  <DefaultLayout>
     <Jumbotron
       title="We create your ideas to life."
       description={`
@@ -124,7 +125,7 @@ const IndexPage = () => (
         </ui.TeamCard>
       ))}
     </ui.TeamCardWrapper>
-  </div>
+  </DefaultLayout>
 )
 
 export default IndexPage

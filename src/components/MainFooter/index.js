@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../Button'
-import arrowup from '../../icons/arrow-thin-up.svg'
+import FA from '../FA'
+import vars from '../../variables'
 
 const Footer = styled.div`
   padding-top: 80px;
@@ -13,7 +14,7 @@ const FooterTitle = styled.h1`
   font-size: 32px;
   margin-top: 0;
   margin-bottom: 16px;
-  color: var(--color-primary);
+  color: ${vars['color-primary']};
   text-transform: uppercase;
 `
 
@@ -28,12 +29,13 @@ const FooterGoToTop = styled.div`
   justify-content: center;
   height: 96px;
   width: 96px;
-  color: var(--color-primary);
+  color: ${vars['color-primary']};
   background: #fff;
   border-radius: 50%;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.2s cubic-bezier(0.06, 0.67, 0.37, 0.99);
   cursor: pointer;
+  font-size: 36px;
 
   &:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -51,7 +53,7 @@ export default class MainFooter extends React.Component {
         </FooterButton>
 
         <FooterGoToTop>
-          <img src={arrowup} style={{ width: 32}} />
+          <FA icon="long-arrow-alt-up" />
         </FooterGoToTop>
       </Footer>
     )

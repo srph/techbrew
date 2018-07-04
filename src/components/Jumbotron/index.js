@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import vars from '../../variables'
 
 const Wrapper = styled.div`
   padding-top: 64px;
@@ -17,7 +18,7 @@ const Title = styled.h1`
 
 const Description = styled.p`
   line-height: 1.7;
-  color: var(--color-gray);
+  color: ${vars['color-gray']};
   width: 75%;
 `
 

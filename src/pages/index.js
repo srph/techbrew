@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import DefaultLayout from '../layouts/Default'
 import Jumbotron from '../components/Jumbotron'
 import Label from '../components/Label'
 import salin from './salin.png'
@@ -58,7 +59,7 @@ const ui = {
 }
 
 const IndexPage = () => (
-  <div>
+  <DefaultLayout>
     <Jumbotron
       title="We create your ideas to life."
       description={`
@@ -94,7 +95,7 @@ const IndexPage = () => (
         </ui.TileShowcaseBox>
       </ui.TileShowcase>
     ))}
-  </div>
+  </DefaultLayout>
 )
 
 export default IndexPage
