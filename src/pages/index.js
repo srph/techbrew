@@ -10,7 +10,6 @@ import vars from '../variables'
 const ui = {}
 ui.TileShowcase = styled.div`
   display: flex;
-  align-items: center;
   margin-bottom: 16px;
 
   &:nth-child(odd) {
