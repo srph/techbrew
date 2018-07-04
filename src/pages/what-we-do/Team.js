@@ -36,7 +36,7 @@ const CardThumbImage = styled.img`
   object-fit: cover;
   transition: ${vars['drop-shadow-transition']};
 
-  ${CardThumb}:hover & {
+  ${Card}:hover & {
     box-shadow: ${vars['drop-shadow-lower']};
   }
 `

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import DefaultLayout from '../layouts/Default'
 import Jumbotron from '../components/Jumbotron'
 import Label from '../components/Label'
-import salin from './salin.png'
+import vars from '../variables'
 
 const ui = {}
 ui.TileShowcase = styled.div`
@@ -43,7 +43,7 @@ ui.TileShowcaseBoxContainer = styled.div`
   padding-top: 50%;
   padding-bottom: 50%;
   height: 0;
-  background: gray;
+  background: ${vars['color-gray']};
 `
 ui.TileShowcaseBoxContainerInner = styled.div`
   position: absolute;
