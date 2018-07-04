@@ -111,7 +111,7 @@ const IndexPage = () => (
     `}
     />
     {list.map((project, i) => (
-      <ui.TileShowcase>
+      <ui.TileShowcase key={i}>
         <ui.TileShowcaseBox>
           <img src={project.thumbnail} alt="Salin" />
         </ui.TileShowcaseBox>

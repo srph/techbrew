@@ -38,7 +38,10 @@ const NavigationLinksItem = styled(Link)`
   font-weight: bold;
   text-transform: uppercase;
   height: 100%;
-  margin-left: 40px;
+
+  &:not(:first-child) {
+    margin-left: 40px;
+  }
 
   &.active > ${NavigationLinksItemStrikethrough},
   &:hover > ${NavigationLinksItemStrikethrough} {
@@ -54,7 +57,7 @@ export default class MainNavigation extends React.Component {
         <NavigationBranding to="/">Brew Tech</NavigationBranding>
 
         <NavigationLinks>
-          <NavigationLinksItem to="/" activeClassName="active" exact first>
+          <NavigationLinksItem to="/" activeClassName="active" exact>
             Our Work
             <NavigationLinksItemStrikethrough />
           </NavigationLinksItem>
