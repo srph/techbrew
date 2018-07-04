@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import MainBackground from '../components/MainBackground'
-
 import './fa'
-import './normalize.css'
+
 
 const Layout = ({ children, data }) => (
   <MainBackground>

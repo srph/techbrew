@@ -11,5 +11,6 @@ export default new Typography({
   headingFontFamily: fam,
   bodyFontFamily: fam,
   color: vars['color-black'],
-  boxSizing: 'border-box'
+  boxSizing: 'border-box',
+  includeNormalize: true
 })
