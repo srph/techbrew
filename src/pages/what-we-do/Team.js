@@ -24,7 +24,6 @@ const CardThumb = styled.div`
   height: 0;
   margin-bottom: 16px;
   overflow: hidden;
-  object
 `
 const CardThumbImage = styled.img`
   position: absolute;

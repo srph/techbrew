@@ -16,9 +16,14 @@ const Label = styled.span`
 
 Label.Group = styled.div`
   display: flex;
+  flex-wrap: wrap;
 
   span:not(:last-child) {
     margin-right: 8px;
+  }
+
+  ${Label} {
+    margin-bottom: 8px;
   }
 `
 
