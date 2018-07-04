@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react'
 import styled from 'styled-components'
 import vars from '../../variables'
@@ -22,6 +23,8 @@ const CardThumb = styled.div`
   padding-bottom: 100%;
   height: 0;
   margin-bottom: 16px;
+  overflow: hidden;
+  object
 `
 const CardThumbImage = styled.img`
   position: absolute;
@@ -31,6 +34,7 @@ const CardThumbImage = styled.img`
   bottom: 0;
   border-radius: 4px;
   box-shadow: 0;
+  object-fit: cover;
   transition: ${vars['drop-shadow-transition']};
 
   ${CardThumb}:hover & {
@@ -47,17 +51,45 @@ const CardTitle = styled.h5`
   color: gray;
 `
 
+type Member = {
+  name: string,
+  title: string,
+  image: string
+}
+
+const list: Array<Member> = [{
+  name: 'JC Ricaro',
+  title: 'Backend Developer',
+  image: require('./team-img/jc.png')
+}, {
+  name: 'Kier Borromeo',
+  title: 'Frontend Developer',
+  image: require('./team-img/kier.png')
+}, {
+  name: 'Kirby Borromeo',
+  title: 'Designer',
+  image: require('./team-img/kirby.png')
+}, {
+  name: 'Jan Marvin',
+  title: 'Salesperson',
+  image: require('./team-img/jc.png')
+}, {
+  name: 'Melisa Besana',
+  title: 'Salesperson',
+  image: require('./team-img/jc.png')
+}]
+
 function Team() {
   return (
     <Wrapper>
-      {new Array(5).fill(0).map((process, i) => (
+      {list.map((member, i) => (
         <Card key={i}>
           <CardThumb>
-            <CardThumbImage src="http://via.placeholder.com/250x250" />
+            <CardThumbImage src={member.image} alt={`${member.name}'s Photo`} />
           </CardThumb>
 
-          <CardName>JC Ricaor</CardName>
-          <CardTitle>Front-End Developer</CardTitle>
+          <CardName>{member.name}</CardName>
+          <CardTitle>{member.title}</CardTitle>
         </Card>
       ))}
     </Wrapper>

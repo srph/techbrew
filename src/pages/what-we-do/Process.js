@@ -1,6 +1,7 @@
+/* @flow */
 import React from 'react'
 import styled from 'styled-components'
-import cog from '../../icons/cog.svg'
+import FA from '../../components/FA'
 import vars from '../../variables'
 
 const Wrapper = styled.div`
@@ -23,13 +24,12 @@ const CardInner = styled.div`
 
   &:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-    color: red;
+    color: ${vars['color-primary']};
   }
 `
 const CardIcon = styled.div`
   margin-bottom: 16px;
-  padding-left: 48px;
-  padding-right: 48px;
+  color: ${vars['color-primary']};
 `
 const CardTitle = styled.h3`
   margin-bottom: 24px;
@@ -41,21 +41,40 @@ const CardDescription = styled.p`
   line-height: 1.7;
 `
 
+type Process = {
+  title: string,
+  icon: string,
+  description: string
+}
+
+const list: Array<Process> = [{
+  title: 'Prototyping',
+  description: 'Lorem ipsum keme keme keme 48 years chipipay Gino krang-krang doonek na.',
+  icon: 'th-large'
+}, {
+  title: 'Design',
+  description: 'Lorem ipsum keme keme keme 48 years chipipay Gino krang-krang doonek na.',
+  icon: 'object-ungroup'
+}, {
+  title: 'Development',
+  description: 'Lorem ipsum keme keme keme 48 years chipipay Gino krang-krang doonek na.',
+  icon: 'code'
+}]
+
 function Process() {
   return (
     <Wrapper>
-      {new Array(3).fill(0).map((process, i) => (
+      {list.map((process, i) => (
         <Card key={i}>
           <CardInner>
             <CardIcon>
-              <img src={cog} />
+              <FA icon={process.icon} size='4x' />
             </CardIcon>
 
-            <CardTitle>Prototyping</CardTitle>
+            <CardTitle>{process.title}</CardTitle>
 
             <CardDescription>
-              Lorem ipsum keme keme keme 48 years chipipay Gino krang-krang doonek
-              na.
+              {process.description}
             </CardDescription>
           </CardInner>
         </Card>
