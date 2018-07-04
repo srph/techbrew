@@ -40,8 +40,7 @@ ui.TileShowcaseBox = styled.div`
 `
 ui.TileShowcaseBoxContainer = styled.div`
   position: relative;
-  padding-top: 50%;
-  padding-bottom: 50%;
+  padding-bottom: calc(100% - 8px);
   height: 0;
   background: ${vars['color-gray']};
 `
