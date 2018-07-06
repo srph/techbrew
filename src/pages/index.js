@@ -42,7 +42,6 @@ ui.TileShowcaseBoxContainer = styled.div`
   position: relative;
   padding-bottom: calc(100% - 8px);
   height: 0;
-  background: ${vars['color-gray']};
 `
 ui.TileShowcaseBoxContainerInner = styled.div`
   position: absolute;
@@ -60,11 +59,14 @@ ui.TileShowcaseBoxTitle = styled.h3`
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 24px;
+  font-size: 14px;
+  font-family: ${vars['font-family-heading']};
+  text-transform: uppercase;
 `
 ui.TileShowcaseBoxDescription = styled.p`
   margin-top: 0;
   margin-bottom: 16px;
+  font-size: 18px;
 `
 
 type Project = {
@@ -76,6 +78,13 @@ type Project = {
 
 const list: Array<Project> = [
   {
+    title: 'Royal Canin',
+    description:
+      'Effective pet nutrition. Royal Canin made customer registration and retail management accessible.',
+    thumbnail: require('./project-img/salin.png'),
+    tags: ['Design', 'Web App', 'React'],
+  },
+  {
     title: 'Salin',
     description:
       'A mobile app that allow its user to answer survey in exchange of credits.',
@@ -83,31 +92,42 @@ const list: Array<Project> = [
     tags: ['Design', 'Mobile App', 'React Native', 'Laravel'],
   },
   {
-    title: 'Tara',
+    title: 'ONE Marketplace',
     description:
-      'A mobile app that allow its user to answer survey in exchange of credits.',
+      'One Marketplace is the bazaar of a social e-commerce platform that lets you build personal or commercial online stores.',
+    thumbnail: require('./project-img/tara.png'),
+    tags: ['Web App', 'React'],
+  },
+  {
+    title: 'Tara PMB',
+    description:
+      'TARA is the intelligent product builder. TARA makes it easier with brilliant human talent and smart project management.',
     thumbnail: require('./project-img/tara.png'),
     tags: ['Web App', 'React'],
   },
   {
     title: 'Ateneo Hacks',
     description:
-      'A mobile app that allow its user to answer survey in exchange of credits.',
+      'The website for the first HackStrong, an intercollegiate hackathon hosted by Ateneo Universty.',
     thumbnail: require('./project-img/hackstrong.png'),
-    tags: ['Design', 'Website'],
+    tags: ['Design', 'Website', 'React'],
   },
 ]
 
 const IndexPage = () => (
   <DefaultLayout>
     <Jumbotron
-      title="We create your ideas to life."
+      headline="Brew Tech"
+      title="We turn your ideas to life."
       description={`
-        Lorem ipsum keme keme keme 48 years chipipay Gino krang-krang doonek na
-        bakit kasi jutay cheapangga na ang borta shala ng neuro at ang juts at
-        at bakit sa shogal pamin shonget ugmas 48 years ano pamin ng jutay
-        krang-krang ng kasi matod at bakit dites quality control.
+        We are a digital agency focused on satisfying
+        our client's customers with good user experience and
+        good technology choices.
     `}
+    />
+
+    <Jumbotron
+      headline="Our Work"
     />
     {list.map((project, i) => (
       <ui.TileShowcase key={i}>
@@ -125,8 +145,8 @@ const IndexPage = () => (
               </ui.TileShowcaseBoxDescription>
 
               {project.tags && (
-                <Label.Group reverse={i % 2 === 0}>
-                  {project.tags.map((tag, i) => <Label key={i}>{tag}</Label>)}
+                <Label.Group reverse={i % 2 !== 0}>
+                  {(i % 2 !== 0 ? [...project.tags].reverse() : project.tags).map((tag, i) => <Label key={i}>{tag}</Label>)}
                 </Label.Group>
               )}
             </ui.TileShowcaseBoxContainerInner>

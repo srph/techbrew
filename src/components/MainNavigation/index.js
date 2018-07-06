@@ -11,6 +11,7 @@ const Navigation = styled.div`
 const NavigationBranding = styled.a`
   text-decoration: none;
   font-weight: bold;
+  font-family: ${vars['font-family-heading-serif']};
 `
 const NavigationLinks = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ const NavigationLinksItemStrikethrough = styled.div`
   height: 2px;
   width: 0;
   background: ${vars['color-primary']};
-  transition: 0.2s all ease;
+  transition: 0.5s all ease;
   transform: translateY(-50%);
 `
 const NavigationLinksItem = styled(Link)`
@@ -38,6 +39,7 @@ const NavigationLinksItem = styled(Link)`
   font-weight: bold;
   text-transform: uppercase;
   height: 100%;
+  font-family: ${vars['font-family-heading']};
 
   &:not(:first-child) {
     margin-left: 40px;

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
+import vars from '../../variables'
 
 const Label = styled.span`
   display: inline-block;
@@ -8,10 +9,11 @@ const Label = styled.span`
   line-height: 21px;
   padding-left: 8px;
   padding-right: 8px;
-  font-size: 10px;
+  font-size: 8px;
   border: 1px solid #000;
   text-transform: uppercase;
   font-weight: bold;
+  font-family: ${vars['font-family-heading']}
 `
 
 Label.Group = styled.div`
