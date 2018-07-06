@@ -12,14 +12,26 @@ const Wrapper = styled.div`
   `}
 `
 
-const Headline = styled.h1`
+const Headline = styled.h1` 
+  position: relative;
   font-size: 16px;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 16px;
+  padding-left: 56px;
   text-transform: uppercase;
   font-family: ${vars['font-family-heading']};
   color: ${vars['color-primary']};
+`
+
+const HeadlineLine = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: ${vars['color-primary']};
 `
 
 const Title = styled.h1`
@@ -45,8 +57,11 @@ type Props = {
 export default class Jumbotron extends React.Component<void, Props> {
   render() {
     return (
-      <Wrapper spacious={this.props.description && this.props.title}>
-        {this.props.headline && <Headline>{this.props.headline}</Headline>}
+      <Wrapper spacious={this.props.description && this.props.title}> 
+        {this.props.headline && <Headline>
+          <HeadlineLine />
+          {this.props.headline}
+        </Headline>}
         {this.props.title && <Title>{this.props.title}</Title>}
         <Description>{this.props.description}</Description>
       </Wrapper>
