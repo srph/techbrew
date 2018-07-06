@@ -57,7 +57,7 @@ const list: Array<TechStack> = [{
 }, {
   name: 'Keystone.js',
   description: 'Keystone allows us to build websites with the latest technology.',
-  logo: require('./react.svg')
+  logo: require('./keystone.png')
 }]
 
 const WhatWeDoPage = () => (
