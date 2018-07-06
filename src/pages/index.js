@@ -1,11 +1,12 @@
 /* @flow */
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import DefaultLayout from '../layouts/Default'
 import Jumbotron from '../components/Jumbotron'
 import Label from '../components/Label'
+import PageHelmet from '../components/PageHelmet'
 import vars from '../variables'
+import config from '../config'
 
 const ui = {}
 ui.TileShowcase = styled.div`
@@ -116,19 +117,15 @@ const list: Array<Project> = [
 
 const IndexPage = () => (
   <DefaultLayout>
-    <Jumbotron
-      headline="Brew Tech"
-      title="We turn your ideas to life."
-      description={`
-        We are a digital agency focused on satisfying
-        our client's customers with good user experience and
-        good technology choices.
-    `}
-    />
+    <PageHelmet title={config.keyline} description={config.description} />
 
     <Jumbotron
-      headline="Our Work"
+      headline="Brew Tech"
+      title={`${config.keyline}.`}
+      description={config.description}
     />
+
+    <Jumbotron headline="Our Work" />
     {list.map((project, i) => (
       <ui.TileShowcase key={i}>
         <ui.TileShowcaseBox>
@@ -146,7 +143,10 @@ const IndexPage = () => (
 
               {project.tags && (
                 <Label.Group reverse={i % 2 !== 0}>
-                  {(i % 2 !== 0 ? [...project.tags].reverse() : project.tags).map((tag, i) => <Label key={i}>{tag}</Label>)}
+                  {(i % 2 !== 0
+                    ? [...project.tags].reverse()
+                    : project.tags
+                  ).map((tag, i) => <Label key={i}>{tag}</Label>)}
                 </Label.Group>
               )}
             </ui.TileShowcaseBoxContainerInner>

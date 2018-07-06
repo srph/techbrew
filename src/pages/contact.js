@@ -6,6 +6,7 @@ import Button from '../components/Button'
 import Input from '../components/Input'
 import Textarea from '../components/Textarea'
 import FA from '../components/FA'
+import PageHelmet from '../components/PageHelmet'
 
 const ui = {
   Wrapper: styled.div`
@@ -39,6 +40,8 @@ const ui = {
 
 const IndexPage = () => (
   <Container>
+    <PageHelmet title="Contact Us" description={"Send business inquires or just drop by to say hi!"} />
+
     <ui.Wrapper>
       <ui.CloseButton>
         <Button component="a" to="/" size='large'>

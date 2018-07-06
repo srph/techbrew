@@ -1,17 +1,22 @@
+/* @flow */
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import MainBackground from '../components/MainBackground'
-import './fa'
+import config from '../config'
 
+type Props = {
+  children: () => any
+}
 
-const Layout = ({ children, data }) => (
+const Layout = ({ children }: Props) => (
   <MainBackground>
     <Helmet
-      title={data.site.siteMetadata.title}
+      titleTemplate={`${config.title} | %s`}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { charset: 'utf-8' },
+        { name: 'og:title', content: config.title },
+        { name: 'title', content: config.title },
+        { name: 'keywords', content: config.keywords.join(', ') },
       ]}
     />
 
@@ -19,18 +24,4 @@ const Layout = ({ children, data }) => (
   </MainBackground>
 )
 
-Layout.propTypes = {
-  children: PropTypes.func,
-}
-
 export default Layout
-
-export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`

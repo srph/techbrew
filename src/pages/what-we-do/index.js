@@ -3,9 +3,12 @@ import DefaultLayout from '../../layouts/Default'
 import Jumbotron from '../../components/Jumbotron'
 import Team from './Team'
 import Process from './Process'
+import PageHelmet from '../../components/PageHelmet'
 
 const IndexPage = () => (
   <DefaultLayout>
+    <PageHelmet title="What we do" description={"Learn about our process and technologies we use. Meet the team as well!"} />
+
     <Jumbotron
       title="What we do"
       description={`
