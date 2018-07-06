@@ -70,11 +70,11 @@ const list: Array<Member> = [{
   image: require('./team-img/kirby.png')
 }, {
   name: 'Jan Marvin',
-  title: 'Salesperson',
+  title: 'Sales',
   image: require('./team-img/jc.png')
 }, {
   name: 'Melisa Besana',
-  title: 'Salesperson',
+  title: 'Customer Care',
   image: require('./team-img/jc.png')
 }]
 
