@@ -8,6 +8,7 @@ const Textarea = styled.textarea`
   padding: 14px 16px;
   border: 1px solid ${vars['color-gray']};
   border-radius: 4px;
+  font-size: 18px;
   transition: 0.2s all ease;
   outline: 0;
 
