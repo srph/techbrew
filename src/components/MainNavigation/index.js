@@ -10,10 +10,11 @@ const Navigation = styled.div`
   align-items: center;
   height: 120px;
 `
-const NavigationBranding = styled.a`
+const NavigationBranding = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   font-family: ${vars['font-family-heading-serif']};
+  color: ${vars['color-black']};
 `
 const NavigationLinks = styled.div`
   display: flex;
