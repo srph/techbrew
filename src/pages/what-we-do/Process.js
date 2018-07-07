@@ -81,11 +81,11 @@ const list: Array<Process> = [{
   icon: 'object-ungroup'
 }, {
   title: 'Development',
-  description: 'With proper engineering, we make sure to create our visions to life. ',
+  description: 'As the blueprints are set to stone, we make sure to create our visions to life with proper engineering practices and sensible technology choices.',
   icon: 'code'
 }, {
   title: 'Iteration',
-  description: 'As we launch our product into the wild, we make sure not only improve its existing features, but to also build more upon them.',
+  description: 'As we launch our product into the wild, we make sure not only improve its existing features, but to also build more upon them. We go back to our whiteboard and rethink the product.',
   icon: 'code'
 }]
 
