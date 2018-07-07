@@ -1,5 +1,5 @@
 # techbrew
-[WIP] Website for Tech Brew Labs
+Website for Tech Brew Labs. [View website](techbrewlabs.com)
 
 ## Stack
 Built with [Gatsby](https://www.gatsbyjs.org/) v1, a static-site generator for React.js
