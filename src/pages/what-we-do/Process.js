@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   margin-bottom: 120px;
 `
 const WrapperJumbotron = styled.div`
-  height: 160px;
+  height: 200px;
   margin-bottom: 32px;
 `
 const CardWrapper = styled.div`
@@ -73,15 +73,15 @@ type Process = {
 
 const list: Array<Process> = [{
   title: 'Prototyping',
-  description: `Before we start anything, we pinpoint the problem and gather information. Based on those requirements, we will make user flows with mockups and present them to our clients.`,
+  description: `Before the cogs start rolling, we sit down with our clients, pinpoint the problem, and research to  gather information. Based on those requirements, we will make user flows and present them with mockups.`,
   icon: 'th-large'
 }, {
   title: 'Design',
-  description: 'In this stage, we visualize how it will look like and feel for the users. We formalize the specification on how each part of the web app will work.',
+  description: 'In this stage, we visualize how our product will look like and feel for the users. We formalize the specification on how each part of the web app will work.',
   icon: 'object-ungroup'
 }, {
   title: 'Development',
-  description: 'With proper engineering, gets prepared, we make sure to create our visions to life.',
+  description: 'With proper engineering, we make sure to create our visions to life. ',
   icon: 'code'
 }, {
   title: 'Iteration',

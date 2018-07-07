@@ -21,12 +21,15 @@ export default new Typography({
   googleFonts: [
     {
       name: 'Montserrat',
+      styles: [300, 400, 500, 600, 700, 800]
     },
     {
       name: 'Domine',
+      styles: [400, 700]
     },
     {
       name: 'Source Sans Pro',
+      styles: [400, 600, 700]
     },
   ],
 })
