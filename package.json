@@ -31,6 +31,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "gatsby-plugin-google-analytics": "^1.0.31",
     "gatsby-plugin-typography": "^1.7.19",
     "prettier": "^1.12.0",
     "typography": "^0.16.17"
