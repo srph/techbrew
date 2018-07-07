@@ -1,6 +1,8 @@
 /* @flow */
 import React from 'react'
 import styled from 'styled-components'
+import Container from '../../components/Container'
+import Jumbotron from '../../components/Jumbotron'
 import vars from '../../variables'
 
 const Wrapper = styled.div`
@@ -80,18 +82,25 @@ const list: Array<Member> = [{
 
 function Team() {
   return (
-    <Wrapper>
-      {list.map((member, i) => (
-        <Card key={i}>
-          <CardThumb>
-            <CardThumbImage src={member.image} alt={`${member.name}'s Photo`} />
-          </CardThumb>
+    <Container>
+    <Jumbotron
+      headline="The Team"
+      title="Meet your makers."
+    />
 
-          <CardName>{member.name}</CardName>
-          <CardTitle>{member.title}</CardTitle>
-        </Card>
-      ))}
-    </Wrapper>
+      <Wrapper>
+        {list.map((member, i) => (
+          <Card key={i}>
+            <CardThumb>
+              <CardThumbImage src={member.image} alt={`${member.name}'s Photo`} />
+            </CardThumb>
+
+            <CardName>{member.name}</CardName>
+            <CardTitle>{member.title}</CardTitle>
+          </Card>
+        ))}
+      </Wrapper>
+    </Container>
   )
 }
 

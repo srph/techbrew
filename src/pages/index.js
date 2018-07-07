@@ -5,6 +5,7 @@ import DefaultLayout from '../layouts/Default'
 import Jumbotron from '../components/Jumbotron'
 import Label from '../components/Label'
 import PageHelmet from '../components/PageHelmet'
+import Container from '../components/Container'
 import vars from '../variables'
 import config from '../config'
 
@@ -116,7 +117,7 @@ const list: Array<Project> = [
 ]
 
 const IndexPage = () => (
-  <div>
+  <Container>
     <PageHelmet title={config.keyline} description={config.description} />
 
     <Jumbotron
@@ -154,7 +155,7 @@ const IndexPage = () => (
         </ui.TileShowcaseBox>
       </ui.TileShowcase>
     ))}
-  </div>
+  </Container>
 )
 
 const IndexPageWithLayout = props => (

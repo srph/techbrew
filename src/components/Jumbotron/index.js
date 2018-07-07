@@ -34,6 +34,10 @@ const Headline = styled.h1`
   ${props => props.alignment === 'center' && css`
     padding-left: 0;
   `}
+
+  ${props => props.mode === 'dark' && css`
+    color: #f3bd5c;
+  `}
 `
 
 const HeadlineLine = styled.div`
@@ -70,19 +74,21 @@ type Props = {
   title?: string,
   description?: string,
   alignment: 'center' | 'left' | 'right',
-  padding: boolean
+  padding: boolean,
+  mode: 'light' | 'dark'
 }
 
 export default class Jumbotron extends React.Component<void, Props> {
   static defaultProps = {
     padding: true,
-    alignment: 'left'
+    alignment: 'left',
+    mode: 'light'
   }
 
   render() {
     return (
       <Wrapper padding={this.props.padding} spacious={this.props.description && this.props.title} alignment={this.props.alignment}> 
-        {this.props.headline && <Headline alignment={this.props.alignment}>
+        {this.props.headline && <Headline alignment={this.props.alignment} mode={this.props.mode}>
           {this.props.alignment === 'left' && <HeadlineLine />}
           {this.props.headline}
         </Headline>}

@@ -3,7 +3,10 @@ import DefaultLayout from '../../layouts/Default'
 import Jumbotron from '../../components/Jumbotron'
 import Team from './Team'
 import Process from './Process'
+import Services from './Services'
+import Technology from './Technology'
 import PageHelmet from '../../components/PageHelmet'
+import Container from '../../components/Container'
 import styled from 'styled-components'
 import vars from '../../variables'
 
@@ -36,33 +39,37 @@ const ui = {
     font-size: 18px;
   `,
   ServiceList: styled.div`
-    display: flex;
-    box-shadow: ${vars['drop-shadow']};
+    margin-left: -80px;
+    margin-right: -80px;
     margin-bottom: 80px;
   `,
   ServiceListItem: styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 240px;
-    border-right: 1px solid ${vars['color-gray']};
-    padding: 48px;
-    text-align: center;
-    background: #fff;
-    width: 33.33%;
-    
-    :last-child {
-      border-right: 0;
+    margin-bottom: 64px;
+    width: 50%;
+
+    :nth-child(even) {
+      padding-left: 24px;
+      margin-left: 50%;
+    }
+
+    :nth-child(odd) {
+      padding-right: 24px;
     }
   `,
-  ServiceListItemHeading: styled.h4`
-    font-size: 14px;
-    text-transform: uppercase;
-    font-family: ${vars['font-family-heading']};
+  ServiceListItemIcon: styled.div`
+    margin-right: 32px;
+  `,
+  ServiceListItemTitle: styled.h4`
     margin-top: 0;
-    margin-bottom: 4px;
-  `
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  `,
+  ServiceListItemDescription: styled.p`
+    margin: 0;
+    font-size: 18px;
+    color: ${vars['color-dark-gray']};
+  `,
 }
 
 type TechStack = {
@@ -98,68 +105,38 @@ type Service = {
 const services: Array<Service> = [{
   name: 'Web Development',
   icon: '',
-  description: 'We build interactive web apps.'
+  description: 'We build interactive web apps, from data visualizations to extravagant user experiences.'
 }, {
   name: 'Mobile Development',
   icon: '',
-  description: 'We build interactive web apps.'
+  description: 'Our team delivers mobile apps for both iOS and Android with React Native.'
 }, {
   name: 'UI/UX Design',
   icon: '',
-  description: 'We build interactive web apps.'
+  description: 'Not only do we focus on aesthetics, but we also strive for an enjoyable user experience.'
 }]
 
 const WhatWeDoPage = () => (
   <div>
     <PageHelmet title="What we do" description={"Learn about our process and technologies we use. Meet the team as well!"} />
 
-    <Jumbotron
-      headline="What We Do"
-      title="Good UI and Code."
-      description={`
-        We can help you build your idea from prototype to launch. We make websites,
-        web apps, and mobile apps.
-    `}
-    />
-
-    <Jumbotron
-      headline="Our Services"
-    />
-
-    <ui.ServiceList>
-      {services.map((service, i) =>
-        <ui.ServiceListItem key={i}>
-          <ui.ServiceListItemHeading>{service.name}</ui.ServiceListItemHeading>
-        </ui.ServiceListItem>
-      )}
-    </ui.ServiceList>
+    <Container>
+      <Jumbotron
+        headline="What We Do"
+        title="Good UI and Code."
+        description={`
+          We can help you build your idea from prototype to launch. We make websites,
+          web apps, and mobile apps.
+      `}
+      />
+    </Container>
 
     <Process />
 
-    <Jumbotron
-      headline="Tech Stack"
-      description="We selected the best choices to scaffold your ideas."
-    />
+    <Services />
 
-    <ui.Stack>
-      {list.map((tech, i) =>
-        <ui.StackItem key={i}>
-          <ui.StackItemLogo>
-            <img src={tech.logo} alt='React' />
-          </ui.StackItemLogo>
+    <Technology />
 
-          <div>
-            <ui.StackItemContentHeading>{tech.name}</ui.StackItemContentHeading>
-            <ui.StackItemContentText>{tech.description}</ui.StackItemContentText>
-          </div>
-        </ui.StackItem>
-      )}
-      </ui.Stack>
-
-    <Jumbotron
-      headline="The Team"
-      title="Meet your makers."
-    />
     <Team />
   </div>
 )

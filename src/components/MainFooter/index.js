@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../Button'
+import Container from '../Container'
 import FA from '../FA'
 import vars from '../../variables'
 
@@ -46,17 +47,19 @@ const FooterGoToTop = styled.div`
 export default class MainFooter extends React.Component {
   render() {
     return (
-      <Footer>
-        <FooterTitle>Have some project for us?</FooterTitle>
+      <Container>
+        <Footer>
+          <FooterTitle>Have some project for us?</FooterTitle>
 
-        <FooterButton>
-          <Button>Let's Chat</Button>
-        </FooterButton>
+          <FooterButton>
+            <Button>Let's Chat</Button>
+          </FooterButton>
 
-        <FooterGoToTop>
-          <FA icon="long-arrow-alt-up" />
-        </FooterGoToTop>
-      </Footer>
+          <FooterGoToTop>
+            <FA icon="long-arrow-alt-up" />
+          </FooterGoToTop>
+        </Footer>
+      </Container>
     )
   }
 }

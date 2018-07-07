@@ -3,17 +3,20 @@ import React from 'react'
 import styled, {css} from 'styled-components'
 import FA from '../../components/FA'
 import Jumbotron from '../../components/Jumbotron'
+import Container from '../../components/Container'
 import vars from '../../variables'
 
 const Wrapper = styled.div`
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 70px 0px;;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 70px 0px;\
   background: #fff;
   border-radius: 8px;
   padding: 48px 24px;
   padding-bottom: 16px;
   margin-left: -80px;
   margin-right: -80px;
-  margin-bottom: 120px;
+  margin-bottom: -120px;
+  z-index: 100;
 `
 const WrapperJumbotron = styled.div`
   height: 200px;
@@ -102,7 +105,7 @@ class ProcessSection extends React.Component<void, void, State> {
     const process: Process = list[this.state.active]
     
     return (
-      <div>
+      <Container>
         <Wrapper>
           <WrapperJumbotron>
             <Jumbotron headline="Our Process" alignment="center" description={process.description} padding={false} />
@@ -117,7 +120,7 @@ class ProcessSection extends React.Component<void, void, State> {
             ))}
           </CardWrapper>
         </Wrapper>
-      </div>
+      </Container>
     )
   }
 

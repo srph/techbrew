@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Container from '../Container'
 import styled from 'styled-components'
 import vars from '../../variables'
 
@@ -47,34 +48,35 @@ const NavigationLinksItem = styled(Link)`
 
   &.active > ${NavigationLinksItemStrikethrough},
   &:hover > ${NavigationLinksItemStrikethrough} {
-    width: calc(100% + 8px)    
+    width: calc(100% + 8px);
   }
 `
-
 
 export default class MainNavigation extends React.Component {
   render() {
     return (
-      <Navigation>
-        <NavigationBranding to="/">Brew Tech</NavigationBranding>
+      <Container>
+        <Navigation>
+          <NavigationBranding to="/">Brew Tech</NavigationBranding>
 
-        <NavigationLinks>
-          <NavigationLinksItem to="/" activeClassName="active" exact>
-            Our Work
-            <NavigationLinksItemStrikethrough />
-          </NavigationLinksItem>
+          <NavigationLinks>
+            <NavigationLinksItem to="/" activeClassName="active" exact>
+              Our Work
+              <NavigationLinksItemStrikethrough />
+            </NavigationLinksItem>
 
-          <NavigationLinksItem activeClassName="active" to="/what-we-do">
-            What We Do
-            <NavigationLinksItemStrikethrough />
-          </NavigationLinksItem>
+            <NavigationLinksItem activeClassName="active" to="/what-we-do">
+              What We Do
+              <NavigationLinksItemStrikethrough />
+            </NavigationLinksItem>
 
-          <NavigationLinksItem activeClassName="active" to="/contact">
-            Contact Us
-            <NavigationLinksItemStrikethrough />
-          </NavigationLinksItem>
-        </NavigationLinks>
-      </Navigation>
+            <NavigationLinksItem activeClassName="active" to="/contact">
+              Contact Us
+              <NavigationLinksItemStrikethrough />
+            </NavigationLinksItem>
+          </NavigationLinks>
+        </Navigation>
+      </Container>
     )
   }
 }
