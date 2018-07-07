@@ -116,7 +116,7 @@ const list: Array<Project> = [
 ]
 
 const IndexPage = () => (
-  <DefaultLayout>
+  <div>
     <PageHelmet title={config.keyline} description={config.description} />
 
     <Jumbotron
@@ -154,7 +154,13 @@ const IndexPage = () => (
         </ui.TileShowcaseBox>
       </ui.TileShowcase>
     ))}
+  </div>
+)
+
+const IndexPageWithLayout = props => (
+  <DefaultLayout>
+    <IndexPage {...props} />
   </DefaultLayout>
 )
 
-export default IndexPage
+export default IndexPageWithLayout

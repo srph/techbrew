@@ -5,6 +5,7 @@ import Team from './Team'
 import Process from './Process'
 import PageHelmet from '../../components/PageHelmet'
 import styled from 'styled-components'
+import vars from '../../variables'
 
 const ui = {
   Stack: styled.div`
@@ -33,6 +34,33 @@ const ui = {
   StackItemContentText: styled.p`
     margin-top: 0;
     font-size: 18px;
+  `,
+  ServiceList: styled.div`
+    display: flex;
+    box-shadow: ${vars['drop-shadow']};
+  `,
+  ServiceListItem: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 240px;
+    border-right: 1px solid ${vars['color-gray']};
+    padding: 48px;
+    text-align: center;
+    background: #fff;
+    width: 33.33%;
+    
+    :last-child {
+      border-right: 0;
+    }
+  `,
+  ServiceListItemHeading: styled.h4`
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: ${vars['font-family-heading']};
+    margin-top: 0;
+    margin-bottom: 4px;
   `
 }
 
@@ -60,8 +88,28 @@ const list: Array<TechStack> = [{
   logo: require('./keystone.png')
 }]
 
+type Service = {
+  name: string,
+  description: string,
+  icon: string
+}
+
+const services: Array<Service> = [{
+  name: 'Web Development',
+  icon: '',
+  description: 'We build interactive web apps.'
+}, {
+  name: 'Mobile Development',
+  icon: '',
+  description: 'We build interactive web apps.'
+}, {
+  name: 'UI/UX Design',
+  icon: '',
+  description: 'We build interactive web apps.'
+}]
+
 const WhatWeDoPage = () => (
-  <DefaultLayout>
+  <div>
     <PageHelmet title="What we do" description={"Learn about our process and technologies we use. Meet the team as well!"} />
 
     <Jumbotron
@@ -72,6 +120,27 @@ const WhatWeDoPage = () => (
         web apps, and mobile apps.
     `}
     />
+
+    <Jumbotron
+      headline="Our Services"
+    />
+
+    <ui.ServiceList>
+      {services.map((service, i) =>
+        <ui.ServiceListItem key={i}>
+          <ui.ServiceListItemHeading>{service.name}</ui.ServiceListItemHeading>
+        </ui.ServiceListItem>
+      )}
+    </ui.ServiceList>
+
+    <Jumbotron
+      headline="Our Process"
+      description={`
+        From start to finish, 
+    `}
+    />
+
+    <Process />
 
     <Jumbotron
       headline="Tech Stack"
@@ -94,21 +163,17 @@ const WhatWeDoPage = () => (
       </ui.Stack>
 
     <Jumbotron
-      headline="Our Process"
-      description={`
-        From start to finish, 
-    `}
-    />
-
-    <Process />
-
-
-    <Jumbotron
       headline="The Team"
       title="Meet your makers."
     />
     <Team />
+  </div>
+)
+
+const WhatWeDoPageWithLayout = props => (
+  <DefaultLayout>
+    <WhatWeDoPage {...props} />
   </DefaultLayout>
 )
 
-export default WhatWeDoPage
+export default WhatWeDoPageWithLayout

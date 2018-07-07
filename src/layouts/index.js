@@ -1,15 +1,15 @@
 /* @flow */
 import React from 'react'
 import Helmet from 'react-helmet'
-import MainBackground from '../components/MainBackground'
 import config from '../config'
+import './fa'
 
 type Props = {
   children: () => any
 }
 
 const Layout = ({ children }: Props) => (
-  <MainBackground>
+  <div>
     <Helmet
       titleTemplate={`${config.title} | %s`}
       meta={[
@@ -19,9 +19,9 @@ const Layout = ({ children }: Props) => (
         { name: 'keywords', content: config.keywords.join(', ') },
       ]}
     />
-
+    
     {children()}
-  </MainBackground>
+  </div>
 )
 
 export default Layout
