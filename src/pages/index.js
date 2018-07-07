@@ -121,7 +121,7 @@ const IndexPage = () => (
     <PageHelmet title={config.keyline} description={config.description} />
 
     <Jumbotron
-      headline="Brew Tech"
+      headline={config.title}
       title={`${config.keyline}.`}
       description={config.description}
     />
