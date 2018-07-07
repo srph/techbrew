@@ -7,13 +7,16 @@ import Button from '../components/Button'
 import Input from '../components/Input'
 import Textarea from '../components/Textarea'
 import FA from '../components/FA'
+import vars from '../variables'
 import PageHelmet from '../components/PageHelmet'
-import {withLastLocation} from '../components/LastLocation'
+import { withLastLocation } from '../components/LastLocation'
+import linkState from 'linkstate'
+import axios from 'axios'
 
 const ui = {
   Wrapper: styled.div`
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 120px;
   `,
   CloseButton: styled.div`
     margin-bottom: 40px;
@@ -38,6 +41,13 @@ const ui = {
   FormAction: styled.div`
     text-align: right;
   `,
+  Success: styled.h1`
+    margin: 0;
+    padding-top: 120px;
+    font-size: 56px;
+    font-family: ${vars['font-family-heading-serif']};
+    text-align: center;
+  `,
 }
 
 class ContactPage extends React.Component {
@@ -45,7 +55,8 @@ class ContactPage extends React.Component {
     email: '',
     subject: '',
     body: '',
-    loading: false
+    loading: false,
+    success: false,
   }
 
   render() {
@@ -60,7 +71,11 @@ class ContactPage extends React.Component {
 
         <ui.Wrapper>
           <ui.CloseButton>
-            <Button size="large" onClick={this.handleClose}>
+            <Button
+              size="large"
+              onClick={this.handleClose}
+              disabled={this.state.loading}
+            >
               <Button.IconContainer>
                 <Button.Icon>
                   <FA icon="times" />
@@ -70,44 +85,75 @@ class ContactPage extends React.Component {
             </Button>
           </ui.CloseButton>
 
-          <Jumbotron
-            title="Say Hi!"
-            description={`
+          {this.state.success && (
+            <Jumbotron
+              headline="Arigathanks!"
+              title="We'll be in touch."
+              alignment='center'
+            />
+          )}
+
+          {!this.state.success && (
+            <Jumbotron
+              title="Say Hi!"
+              description={`
           Let's create something together
       `}
-          />
-          <ui.FormFields>
-            <ui.FormFieldsInfo>
-              <ui.FormFieldsInfoSection>
-                <Input placeholder="Your name" />
-              </ui.FormFieldsInfoSection>
+            />
+          )}
+          {!this.state.success && (
+            <form onSubmit={this.handleSubmit}>
+              <ui.FormFields>
+                <ui.FormFieldsInfo>
+                  <ui.FormFieldsInfoSection>
+                    <Input
+                      placeholder="Your name"
+                      onChange={linkState(this, 'name')}
+                      value={this.state.name}
+                    />
+                  </ui.FormFieldsInfoSection>
 
-              <ui.FormFieldsInfoSection>
-                <Input placeholder="Your email" />
-              </ui.FormFieldsInfoSection>
-            </ui.FormFieldsInfo>
+                  <ui.FormFieldsInfoSection>
+                    <Input
+                      placeholder="Your email"
+                      type="email"
+                      onChange={linkState(this, 'email')}
+                      value={this.state.email}
+                    />
+                  </ui.FormFieldsInfoSection>
+                </ui.FormFieldsInfo>
 
-            <Textarea rows="8" placeholder="Your message..." />
-          </ui.FormFields>
+                <Textarea
+                  rows="8"
+                  placeholder="Your message..."
+                  onChange={linkState(this, 'body')}
+                  value={this.state.body}
+                />
+              </ui.FormFields>
 
-          <ui.FormAction>
-            <Button spacious preset="gray" size="large">
-              <Button.IconContainer>
-                <Button.IconText>Send Message</Button.IconText>
-                <Button.Icon>
-                  <FA icon="long-arrow-alt-right" size="2x" />
-                </Button.Icon>
-              </Button.IconContainer>
-            </Button>
-          </ui.FormAction>
+              <ui.FormAction>
+                <Button
+                  spacious
+                  preset="gray"
+                  size="large"
+                  disabled={this.state.loading}
+                >
+                  <Button.IconContainer>
+                    <Button.IconText>Send Message</Button.IconText>
+                    <Button.Icon>
+                      <FA icon="long-arrow-alt-right" size="2x" />
+                    </Button.Icon>
+                  </Button.IconContainer>
+                </Button>
+              </ui.FormAction>
+            </form>
+          )}
         </ui.Wrapper>
       </Container>
     )
   }
 
   handleClose = () => {
-    console.log(this.props)
-    
     if (this.props.lastLocation) {
       this.props.history.goBack()
     } else {
@@ -118,9 +164,37 @@ class ContactPage extends React.Component {
   handleSubmit = evt => {
     evt.preventDefault()
 
+    if (this.state.loading) {
+      return
+    }
+
     this.setState({
-      loading: true
+      loading: true,
     })
+
+    axios
+      .post(
+        'https://discordapp.com/api/webhooks/464094552983339008/9-T1nITmPjrZJks5Ac35vKLspPaGiBmLaUVgFMfz4zyWhqEsd-9IMPG42T6gNI87F9ky',
+        {
+          content: `${this.state.name} (${this.state.email}) sent: ${
+            this.state.body
+          }`,
+        }
+      )
+      .then(
+        res => {
+          this.setState({
+            loading: false,
+            success: true,
+          })
+        },
+        err => {
+          this.setState({
+            error: 'An error occurred. Please try again!',
+            loading: false,
+          })
+        }
+      )
   }
 }
 
