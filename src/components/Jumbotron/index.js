@@ -11,6 +11,10 @@ const Wrapper = styled.div`
     padding-bottom: 120px;
   `}
 
+  ${props => !props.padding && css`
+    padding: 0;
+  `}
+
   ${props => props.alignment === 'center' && css`
     text-align: center; 
   `}
@@ -54,29 +58,36 @@ const Description = styled.p`
   line-height: 1.7;
   width: 75%;
   font-size: 24px;
+  
+  ${props => props.alignment === 'center' && css`
+    margin: 0 auto;
+    ${'' /* width: 60%; */}
+  `}
 `
 
 type Props = {
   headline?: string,
   title?: string,
   description?: string,
-  alignment: 'center' | 'left' | 'right'
+  alignment: 'center' | 'left' | 'right',
+  padding: boolean
 }
 
 export default class Jumbotron extends React.Component<void, Props> {
   static defaultProps = {
+    padding: true,
     alignment: 'left'
   }
 
   render() {
     return (
-      <Wrapper spacious={this.props.description && this.props.title} alignment={this.props.alignment}> 
+      <Wrapper padding={this.props.padding} spacious={this.props.description && this.props.title} alignment={this.props.alignment}> 
         {this.props.headline && <Headline alignment={this.props.alignment}>
           {this.props.alignment === 'left' && <HeadlineLine />}
           {this.props.headline}
         </Headline>}
         {this.props.title && <Title>{this.props.title}</Title>}
-        <Description>{this.props.description}</Description>
+        <Description alignment={this.props.alignment}>{this.props.description}</Description>
       </Wrapper>
     )
   }

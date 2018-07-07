@@ -38,6 +38,7 @@ const ui = {
   ServiceList: styled.div`
     display: flex;
     box-shadow: ${vars['drop-shadow']};
+    margin-bottom: 80px;
   `,
   ServiceListItem: styled.div`
     display: flex;
@@ -132,13 +133,6 @@ const WhatWeDoPage = () => (
         </ui.ServiceListItem>
       )}
     </ui.ServiceList>
-
-    <Jumbotron
-      headline="Our Process"
-      description={`
-        From start to finish, 
-    `}
-    />
 
     <Process />
 

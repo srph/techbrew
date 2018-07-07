@@ -17,5 +17,16 @@ export default new Typography({
       // No idea why Typography.js puts marginBottom by default.
       marginBottom: 0
     }
-  })
+  }),
+  googleFonts: [
+    {
+      name: 'Montserrat',
+    },
+    {
+      name: 'Domine',
+    },
+    {
+      name: 'Source Sans Pro',
+    },
+  ],
 })
