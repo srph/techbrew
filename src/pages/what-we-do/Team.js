@@ -34,7 +34,8 @@ const CardThumbImage = styled.img`
   right: 0;
   bottom: 0;
   border-radius: 4px;
-  box-shadow: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: ${vars['drop-shadow-transition']};
 
@@ -73,11 +74,11 @@ const list: Array<Member> = [{
 }, {
   name: 'Jan Marvin',
   title: 'Sales',
-  image: require('./team-img/jc.png')
+  image: require('./team-img/jam.svg')
 }, {
   name: 'Melisa Besana',
   title: 'Customer Care',
-  image: require('./team-img/jc.png')
+  image: require('./team-img/mie.jpg')
 }]
 
 function Team() {
