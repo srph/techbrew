@@ -52,7 +52,7 @@ export default class MainFooter extends React.Component {
           <FooterTitle>Have some project for us?</FooterTitle>
 
           <FooterButton>
-            <Button>Let's Chat</Button>
+            <Button component="a" to="/contact">Let's Chat</Button>
           </FooterButton>
 
           <FooterGoToTop>
