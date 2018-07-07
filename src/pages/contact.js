@@ -124,7 +124,7 @@ class ContactPage extends React.Component<void, Props, State> {
               title="Let's create something together!"
             />
           )}
-          {this.state.error && <p>{this.state.error}</p>}
+          {!this.state.success && this.state.error && <p>{this.state.error}</p>}
           {!this.state.success && (
             <form onSubmit={this.handleSubmit}>
               <ui.FormFields>
