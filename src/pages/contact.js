@@ -163,9 +163,9 @@ class ContactPage extends React.Component<void, Props, State> {
 
               <ui.FormAction>
                 <Button
+                  loading={this.state.loading}
                   spacious
                   size="large"
-                  disabled={this.state.loading}
                 >
                   <Button.IconContainer>
                     <Button.IconText>Send Message</Button.IconText>

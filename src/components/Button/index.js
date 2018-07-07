@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes} from 'styled-components'
 import vars from '../../variables'
 import Link from 'gatsby-link'
 
@@ -11,9 +11,9 @@ type Props = {
   spacious: boolean,
 }
 
-const Button = ({ component, spacious, preset, size, ...props }: Props) => {
+const Button = ({ component, spacious, preset, size, loading, disabled, title, ...props }: Props) => {
   const Component = component === 'a' ? Link : component
-  return <Component {...props} />
+  return <Component {...props} disabled={loading || disabled} title={loading ? 'Loading...' : title} />
 }
 
 Button.defaultProps = {
@@ -41,6 +41,20 @@ Button.Icon = styled.div`
 
 Button.IconText = ({ children }) => <span>{children}</span>
 
+const loading = keyframes`
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+`
+
 export default styled(Button)`
   display: inline-block;
   padding: 0;
@@ -63,6 +77,14 @@ export default styled(Button)`
   :focus {
     box-shadow: 0 0 0 2px ${vars['color-gray']}
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  ${props => props.loading && css`
+    animation: ${loading} 2s linear infinite;
+  `}
 
   ${props =>
     props.spacious &&
