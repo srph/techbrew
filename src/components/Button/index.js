@@ -57,6 +57,12 @@ export default styled(Button)`
   cursor: pointer;
   text-decoration: none;
   color: ${vars['color-primary']};
+  outline: 0;
+  transition: 0.2s all ease;  
+
+  :focus {
+    box-shadow: 0 0 0 2px ${vars['color-gray']}
+  }
 
   ${props =>
     props.spacious &&

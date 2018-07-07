@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react'
 import styled from 'styled-components'
 import Jumbotron from '../components/Jumbotron'
@@ -5,6 +6,7 @@ import Container from '../components/Container'
 import BaseLayout from '../layouts/Base'
 import Button from '../components/Button'
 import Input from '../components/Input'
+import InputError from '../components/InputError'
 import Textarea from '../components/Textarea'
 import FA from '../components/FA'
 import vars from '../variables'
@@ -12,6 +14,7 @@ import PageHelmet from '../components/PageHelmet'
 import { withLastLocation } from '../components/LastLocation'
 import linkState from 'linkstate'
 import axios from 'axios'
+import Validator from 'validatorjs'
 
 const ui = {
   Wrapper: styled.div`
@@ -50,17 +53,40 @@ const ui = {
   `,
 }
 
-class ContactPage extends React.Component {
-  state = {
+type Props = {
+  history: {
+    push: () => void,
+    goBack: () => void
+  },
+  lastLocation: {}
+}
+
+type State = {
+  email: string,
+  subject: string,
+  body: string,
+  error: string,
+  success: boolean,
+  errors: {
+    name?: string,
+    email?: string,
+    body?: string
+  }
+}
+
+class ContactPage extends React.Component<void, Props, State> {
+  state: State = {
     email: '',
     subject: '',
     body: '',
+    error: '',
     loading: false,
     success: false,
+    errors: {}
   }
 
   render() {
-    window.h = this.props.history
+    console.log(this.state.errors)
 
     return (
       <Container>
@@ -72,7 +98,6 @@ class ContactPage extends React.Component {
         <ui.Wrapper>
           <ui.CloseButton>
             <Button
-              size="large"
               onClick={this.handleClose}
               disabled={this.state.loading}
             >
@@ -89,52 +114,56 @@ class ContactPage extends React.Component {
             <Jumbotron
               headline="Arigathanks!"
               title="We'll be in touch."
-              alignment='center'
+              alignment="center"
             />
           )}
 
           {!this.state.success && (
             <Jumbotron
-              title="Say Hi!"
-              description={`
-          Let's create something together
-      `}
+              headline="Reach out"
+              title="Let's create something together!"
             />
           )}
+          {this.state.error && <p>{this.state.error}</p>}
           {!this.state.success && (
             <form onSubmit={this.handleSubmit}>
               <ui.FormFields>
                 <ui.FormFieldsInfo>
                   <ui.FormFieldsInfoSection>
-                    <Input
-                      placeholder="Your name"
-                      onChange={linkState(this, 'name')}
-                      value={this.state.name}
-                    />
+                    <InputError errors={this.state.errors.name}>
+                      <Input
+                        placeholder="Your name"
+                        onChange={linkState(this, 'name')}
+                        value={this.state.name}
+                      />
+                    </InputError>
                   </ui.FormFieldsInfoSection>
 
                   <ui.FormFieldsInfoSection>
-                    <Input
-                      placeholder="Your email"
-                      type="email"
-                      onChange={linkState(this, 'email')}
-                      value={this.state.email}
-                    />
+                    <InputError errors={this.state.errors.email}>
+                      <Input
+                        placeholder="Your email"
+                        type="email"
+                        onChange={linkState(this, 'email')}
+                        value={this.state.email}
+                      />
+                    </InputError>
                   </ui.FormFieldsInfoSection>
                 </ui.FormFieldsInfo>
 
-                <Textarea
-                  rows="8"
-                  placeholder="Your message..."
-                  onChange={linkState(this, 'body')}
-                  value={this.state.body}
-                />
+                <InputError errors={this.state.errors.body}>
+                  <Textarea
+                    rows="8"
+                    placeholder="Your message..."
+                    onChange={linkState(this, 'body')}
+                    value={this.state.body}
+                  />
+                </InputError>
               </ui.FormFields>
 
               <ui.FormAction>
                 <Button
                   spacious
-                  preset="gray"
                   size="large"
                   disabled={this.state.loading}
                 >
@@ -161,10 +190,40 @@ class ContactPage extends React.Component {
     }
   }
 
+  format = () => {
+    return {
+      content: `${this.state.name} (${this.state.email}) sent: ${
+        this.state.body
+      }`,
+    }
+  }
+
   handleSubmit = evt => {
     evt.preventDefault()
 
     if (this.state.loading) {
+      return
+    }
+
+    const v = new Validator(
+      {
+        name: this.state.name,
+        email: this.state.email,
+        body: this.state.body,
+      },
+      {
+        name: 'required',
+        email: 'email|required',
+        body: 'required',
+      }
+    )
+
+    if (v.fails()) {
+      this.setState({
+        errors: v.errors.all(),
+        error: 'Please fill out the form properly.',
+      })
+
       return
     }
 
@@ -175,11 +234,7 @@ class ContactPage extends React.Component {
     axios
       .post(
         'https://discordapp.com/api/webhooks/464094552983339008/9-T1nITmPjrZJks5Ac35vKLspPaGiBmLaUVgFMfz4zyWhqEsd-9IMPG42T6gNI87F9ky',
-        {
-          content: `${this.state.name} (${this.state.email}) sent: ${
-            this.state.body
-          }`,
-        }
+        this.format()
       )
       .then(
         res => {
