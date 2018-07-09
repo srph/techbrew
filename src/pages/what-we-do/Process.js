@@ -80,7 +80,7 @@ const list: Array<Process> = [{
   icon: 'th-large'
 }, {
   title: 'Design',
-  description: 'In this stage, we visualize how our product will look like and feel for the users. We formalize the specification on how each part of the web app will work.',
+  description: 'In this stage, we visualize how our product will look like and feel for the users. We will formalize the specification on how each part of the software will work.',
   icon: 'object-ungroup'
 }, {
   title: 'Development',
