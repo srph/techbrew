@@ -74,7 +74,7 @@ const list: Array<Member> = [{
 }, {
   name: 'Jan Marvin',
   title: 'Sales',
-  image: require('./team-img/jam.svg')
+  image: require('./team-img/jam.jpg')
 }, {
   name: 'Melisa Besana',
   title: 'Customer Care',
