@@ -193,7 +193,7 @@ class ContactPage extends React.Component<void, Props, State> {
   format = () => {
     return {
       content: `${this.state.name} (${this.state.email}) sent: ${
-        this.state.body
+        '```' + this.state.body + '```'
       }`,
     }
   }
