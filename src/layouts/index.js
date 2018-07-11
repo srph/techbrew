@@ -14,6 +14,7 @@ const Layout = ({ children }: Props) => (
       titleTemplate={`${config.title} | %s`}
       meta={[
         { property: 'og:site_name', content: config.title },
+        { property: 'og:type', content: 'website' },
         { name: 'keywords', content: config.keywords.join(', ') },
       ]}
     />
