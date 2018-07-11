@@ -86,8 +86,6 @@ class ContactPage extends React.Component<void, Props, State> {
   }
 
   render() {
-    console.log(this.state.errors)
-
     return (
       <Container>
         <PageHelmet
