@@ -29,6 +29,7 @@ class PageHelmet extends React.Component<void, Props> {
           { property: 'og:title', content: `${config.title} | ${title}` },
           { name: 'description', content: description },
           { property: 'og:description', content: description },
+          { property: 'twitter:card', content: description },
         ]}
       />
     )
