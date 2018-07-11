@@ -66,7 +66,7 @@ const CardCircle = styled.div`
 const CardTitle = styled.h4`
   text-transform: uppercase;
   font-size: 12px;
-  font-family: ${vars['font-family']};
+  font-family: ${vars['font-family-heading']};
 `
 
 type Process = {
