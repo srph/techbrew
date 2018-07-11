@@ -26,10 +26,6 @@ export default new Typography({
     {
       name: 'Domine',
       styles: [400, 700]
-    },
-    {
-      name: 'Source Sans Pro',
-      styles: [400, 600, 700]
-    },
+    }
   ],
 })
