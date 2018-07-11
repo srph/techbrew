@@ -231,7 +231,7 @@ class ContactPage extends React.Component<void, Props, State> {
 
     axios
       .post(
-        'https://discordapp.com/api/webhooks/466663153057660928/tUKv-0n1A95My8yLiih1h1aGc8puAMCQixpYSsA4M6a36s_zB7jwh2BQlywy3P4yqu8i',
+        process.env.DISCORD_CONTACT_WEB_HOOK,
         this.format()
       )
       .then(
