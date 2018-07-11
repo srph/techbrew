@@ -1,12 +1,21 @@
 /* @flow */
 import React from 'react'
 import Helmet from 'react-helmet'
+import {withRouter} from 'react-router'
 import config from '../../config'
 
-type Props = {
+type RouterProps = {
+  location: {
+    pathname: string
+  }
+}
+
+type OwnProps = {
   title: string,
   description: string
 }
+
+type Props = RouterProps & OwnProps
 
 class PageHelmet extends React.Component<void, Props> {
   render() {
@@ -15,6 +24,7 @@ class PageHelmet extends React.Component<void, Props> {
       <Helmet
         title={title}
         meta={[
+          { property: 'og:url', content: `https://techbrewlabs.com${this.props.location.pathname}` },
           { name: 'title', content: `${config.title} | ${title}` },
           { property: 'og:title', content: `${config.title} | ${title}` },
           { name: 'description', content: description },
@@ -25,4 +35,4 @@ class PageHelmet extends React.Component<void, Props> {
   }
 }
 
-export default PageHelmet
+export default withRouter(PageHelmet)
