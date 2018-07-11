@@ -231,7 +231,7 @@ class ContactPage extends React.Component<void, Props, State> {
 
     axios
       .post(
-        process.env.DISCORD_CONTACT_WEB_HOOK,
+        process.env.GATSBY_DISCORD_CONTACT_WEB_HOOK,
         this.format()
       )
       .then(
@@ -241,10 +241,7 @@ class ContactPage extends React.Component<void, Props, State> {
             success: true,
           })
         },
-        err => {
-          console.log(process.env.DISCORD_CONTACT_WEB_HOOK)
-          console.log(err)
-          
+        err => {          
           this.setState({
             error: 'An error occurred. Please try again!',
             loading: false,
