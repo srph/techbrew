@@ -242,6 +242,9 @@ class ContactPage extends React.Component<void, Props, State> {
           })
         },
         err => {
+          console.log(process.env.DISCORD_CONTACT_WEB_HOOK)
+          console.log(err)
+          
           this.setState({
             error: 'An error occurred. Please try again!',
             loading: false,
