@@ -13,8 +13,7 @@ const Layout = ({ children }: Props) => (
     <Helmet
       titleTemplate={`${config.title} | %s`}
       meta={[
-        { name: 'og:title', content: config.title },
-        { name: 'title', content: config.title },
+        { name: 'og:site_name', content: config.title },
         { name: 'keywords', content: config.keywords.join(', ') },
       ]}
     />
