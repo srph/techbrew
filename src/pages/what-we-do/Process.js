@@ -8,7 +8,7 @@ import vars from '../../variables'
 
 const Wrapper = styled.div`
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 70px 0px;\
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 70px 0px;
   background: #fff;
   border-radius: 8px;
   padding: 48px 24px;
@@ -66,6 +66,7 @@ const CardCircle = styled.div`
 const CardTitle = styled.h4`
   text-transform: uppercase;
   font-size: 12px;
+  font-family: ${vars['font-family']};
 `
 
 type Process = {
