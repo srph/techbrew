@@ -29,3 +29,4 @@ Then set the public / root path to `/public`.
 ## Attribution
 - Designed by [Kirby Borromeo](https://dribbble.com/kbyborromeo).
 - [Vincent Tantardini](https://dribbble.com/vt) for his [Freebie 16 Line Illustrations](https://dribbble.com/shots/2131376-Freebie-16-Line-Illustrations)
+- [Rasmus Andersson](https://rsms.me) [(@rsms)](https://twitter.com/rsms) for [Inter UI](https://rsms.me/inter/)
