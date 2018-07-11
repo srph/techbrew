@@ -10,7 +10,7 @@ export default {
   'form-size': 40,
   'form-size-large': 48,
   'font-size': 14,
-  'font-family': `'Source Sans Pro', San Francisco, -apple-system, BlinkMacSystemFont, ".SFSNText-Regular", Segoe UI, Ubuntu, Helvetica, sans-serif`,
+  'font-family': `'Inter UI', San Francisco, -apple-system, BlinkMacSystemFont, ".SFSNText-Regular", Segoe UI, Ubuntu, Helvetica, sans-serif`,
   'font-family-heading-serif': `'Domine', San Francisco, -apple-system, BlinkMacSystemFont, ".SFSNText-Regular", Segoe UI, Ubuntu, Helvetica, sans-serif`,
   'font-family-heading': `'Montserrat', 'Source Sans Pro', San Francisco, -apple-system, BlinkMacSystemFont, ".SFSNText-Regular", Segoe UI, Ubuntu, Helvetica, sans-serif`,
   'drop-shadow-transition': 'all 0.2s cubic-bezier(0.06, 0.67, 0.37, 0.99)',
