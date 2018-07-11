@@ -1,7 +1,7 @@
 export default {
   title: 'Tech Brew',
   keyline: 'We turn ideas into life',
-  description: `We are a digital agency focused on satisfying our client's customers through quality software, emphasizing on enjoyable user experiences.`,
+  description: `We are a development studio focused on delivering quality software and interactive user experiences.`,
   email: 'hey@techbrewlabs.com',
   keywords: [
     'laravel',
