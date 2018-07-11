@@ -1,6 +1,7 @@
 /* @flow */
 import React from 'react'
 import Helmet from 'react-helmet'
+import config from '../../config'
 
 type Props = {
   title: string,
@@ -14,8 +15,8 @@ class PageHelmet extends React.Component<void, Props> {
       <Helmet
         title={title}
         meta={[
-          { name: 'title', content: title },
-          { name: 'og:title', content: title },
+          { name: 'title', content: `${config.title} | ${title}` },
+          { name: 'og:title', content: `${config.title} | ${title}` },
           { name: 'description', content: description },
           { name: 'og:description', content: description },
         ]}
