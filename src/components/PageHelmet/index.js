@@ -16,9 +16,9 @@ class PageHelmet extends React.Component<void, Props> {
         title={title}
         meta={[
           { name: 'title', content: `${config.title} | ${title}` },
-          { name: 'og:title', content: `${config.title} | ${title}` },
+          { property: 'og:title', content: `${config.title} | ${title}` },
           { name: 'description', content: description },
-          { name: 'og:description', content: description },
+          { property: 'og:description', content: description },
         ]}
       />
     )
