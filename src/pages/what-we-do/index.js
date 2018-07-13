@@ -118,7 +118,7 @@ const services: Array<Service> = [{
 
 const WhatWeDoPage = () => (
   <div>
-    <PageHelmet title="What we do" description={"Learn about our process and technologies we use. Meet the team as well!"} />
+    <PageHelmet title="What We Do" description={"Learn about what we can do for your team and how we do it as well."} />
 
     <Container>
       <Jumbotron
