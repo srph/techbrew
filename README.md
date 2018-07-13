@@ -13,6 +13,10 @@ Built with [Gatsby](https://www.gatsbyjs.org/) v1, a static-site generator for R
 ```bash
 npm install
 ```
+- Create a file called `.env.development` and configure `GATSBY_DISCORD_CONTACT_WEB_HOOK` to your [Discord Web Hook](https://support.discordapp.com/hc/en-us/articles/228383668) (used in the Contact page):
+```
+GATSBY_DISCORD_CONTACT_WEB_HOOK=<paste_discord_web_hook_here>
+```
 - Run Gatsby to watch for file changes
 ```bash
 npm run develop
@@ -22,7 +26,7 @@ npm run develop
 ### Deployment
 Currently, [Netlify](https://netlify.com) is used for continuous deployment and to host this website.
 
-- Set environment config `DISCORD_CONTACT_WEB_HOOK` to your [Discord Web Hook](https://support.discordapp.com/hc/en-us/articles/228383668) used in the Contact page.
+- Set environment config `GATSBY_DISCORD_CONTACT_WEB_HOOK` to your [Discord Web Hook](https://support.discordapp.com/hc/en-us/articles/228383668) (used in the Contact page).
 
 - Create the build.
 ```
