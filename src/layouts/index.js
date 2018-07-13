@@ -12,7 +12,7 @@ type Props = {
 const Layout = ({ children }: Props) => (
   <div>
     <Helmet
-      titleTemplate={`${config.title} | %s`}
+      titleTemplate={`${config.title} - %s`}
       meta={[
         { property: 'og:site_name', content: config.title },
         { property: 'og:type', content: 'website' },
