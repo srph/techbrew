@@ -22,7 +22,7 @@ npm run develop
 ### Deployment
 Currently, [Netlify](https://netlify.com) is used for continuous deployment and to host this website.
 
-- Set environment config `DISCORD_CONTACT_WEB_HOOK` to your [Discord Web Hook](https://support.discordapp.com/hc/en-us/articles/228383668) used in the Contact page.
+- Set environment config `GATSBY_DISCORD_CONTACT_WEB_HOOK` to your [Discord Web Hook](https://support.discordapp.com/hc/en-us/articles/228383668) used in the Contact page.
 
 - Create the build.
 ```
