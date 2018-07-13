@@ -4,7 +4,7 @@ import Container from '../Container'
 import styled from 'styled-components'
 import vars from '../../variables'
 import config from '../../config'
-import logo from './logo.png'
+import logo from '../../assets/logo.png'
 
 const Navigation = styled.div`
   display: flex;
