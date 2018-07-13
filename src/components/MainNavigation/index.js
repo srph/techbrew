@@ -4,6 +4,7 @@ import Container from '../Container'
 import styled from 'styled-components'
 import vars from '../../variables'
 import config from '../../config'
+import logo from './logo.png'
 
 const Navigation = styled.div`
   display: flex;
@@ -59,7 +60,9 @@ export default class MainNavigation extends React.Component {
     return (
       <Container>
         <Navigation>
-          <NavigationBranding to="/">{config.title}</NavigationBranding>
+          <NavigationBranding to="/">
+            <img src={logo} alt={config.title} />
+          </NavigationBranding>
 
           <NavigationLinks>
             <NavigationLinksItem to="/" activeClassName="active" exact>
