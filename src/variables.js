@@ -1,7 +1,7 @@
 import {rgba} from 'polished'
 
 export default {
-  'color-primary': '#8199ec',
+  'color-primary': '#8c5a3b',
   'color-black': '#454545',
   'color-silver': '#f7f8fc',
   'color-gray': '#e9e9e9',
