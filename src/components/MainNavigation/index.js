@@ -17,6 +17,9 @@ const NavigationBranding = styled(Link)`
   font-family: ${vars['font-family-heading-serif']};
   color: ${vars['color-black']};
 `
+const NavigationBrandingImg = styled.img`
+  vertical-align: middle;
+`
 const NavigationLinks = styled.div`
   display: flex;
   align-items: center;
@@ -61,7 +64,7 @@ export default class MainNavigation extends React.Component {
       <Container>
         <Navigation>
           <NavigationBranding to="/">
-            <img src={logo} alt={config.title} />
+            <NavigationBrandingImg src={logo} alt={config.title} />
           </NavigationBranding>
 
           <NavigationLinks>
