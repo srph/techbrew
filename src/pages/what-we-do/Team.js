@@ -62,7 +62,7 @@ type Member = {
 const list: Array<Member> = [{
   name: 'JC Ricaro',
   title: 'Backend Developer',
-  image: require('./team-img/jc.png')
+  image: require('./team-img/jc.jpeg')
 }, {
   name: 'Kier Borromeo',
   title: 'Frontend Developer',
